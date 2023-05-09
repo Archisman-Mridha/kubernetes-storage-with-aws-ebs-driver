@@ -1,0 +1,11 @@
+apiVersion: k3d.io/v1alpha3
+kind: Simple
+
+name: dev
+
+servers: 1
+
+ports:
+- port: 8080:80
+  nodeFilters:
+  - loadbalancer
