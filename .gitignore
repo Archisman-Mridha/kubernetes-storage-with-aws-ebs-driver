@@ -1,0 +1,6 @@
+# Terraform
+terraform.tfvars
+.terraform
+terraform.tfstate
+.terraform.tfstate.lock.info
+terraform/outputs/ebs-csi-driver.aws-keys
