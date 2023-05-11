@@ -12,7 +12,6 @@ terraform {
 }
 
 provider "aws" {
-
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
 
@@ -23,5 +22,6 @@ provider "aws" {
       project = var.project_name
     }
   }
-
 }
+
+// TODO: bootstrap a Kubernetes cluster in AWS using Kubeadm
