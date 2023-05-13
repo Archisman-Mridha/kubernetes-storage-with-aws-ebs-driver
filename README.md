@@ -6,7 +6,8 @@ Demonstrating how to use AWS EBS as the storage driver with Kubernetes.
 
 ## Procedure
 
-- Bootstrap a self=managed Kubernetes cluster in AWS using Terraform. Then execute this command to set the path to the kubeconfig file -
+- Bootstrap a self=managed Kubernetes cluster in AWS using Terraform. Make sure when bootstrapping the cluster, you set `--allow-privileged=true` for the Kubernetes API server.
+  Execute this command to set the path to the kubeconfig file -
 
 ```bash
 export KUBECONFIG=${path.module}/../kubernetes/kubeconfig.yaml
@@ -36,6 +37,14 @@ export KUBECONFIG=${path.module}/../kubernetes/kubeconfig.yaml
   # Verify that the pods are running
   kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-ebs-csi-driver
   ```
+
+- Create the Storageclass and PVC -
+
+  ```bash
+  kubectl apply -f ./kubernetes/manifests
+  ```
+
+  You will see the PV automatically getting created.
 
 ## References
 
